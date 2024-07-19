@@ -1,5 +1,9 @@
 @import "@bigbinary/neetoui";
 @import "react-toastify/dist/ReactToastify.min.css";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 
 body {
   margin: 0;
