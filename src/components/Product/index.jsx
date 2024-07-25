@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 
 import productsApi from "apis/products";
-import { Header, PageLoader, PageNotFound } from "components/commons";
+import {
+  Header,
+  PageLoader,
+  PageNotFound,
+  AddToCart,
+} from "components/commons";
 import { Typography } from "neetoui";
 import { isNotNil, append } from "ramda";
 import { useParams } from "react-router-dom";
@@ -29,7 +34,7 @@ const Product = () => {
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [fetchProduct]);
 
   const { name, description, mrp, offerPrice, imageUrls, imageUrl } = product;
 
@@ -64,6 +69,7 @@ const Product = () => {
           <Typography className="font-semibold text-green-600">
             {discountPercentage}% off
           </Typography>
+          <AddToCart {...{ slug }} />
         </div>
       </div>
     </>
