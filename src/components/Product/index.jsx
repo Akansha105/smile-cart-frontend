@@ -1,19 +1,26 @@
 import { useState, useEffect } from "react";
 
-import productsApi from "apis/product";
-import { Typography, Spinner } from "neetoui";
+import productsApi from "apis/products";
+import { Header, PageLoader, PageNotFound } from "components/commons";
+import { Typography } from "neetoui";
 import { isNotNil, append } from "ramda";
+import { useParams } from "react-router-dom";
 
 import Carousel from "./Carousel";
 
 const Product = () => {
+  const { slug } = useParams();
+  const [isError, setIsError] = useState(false);
+
   const [isLoading, setIsLoading] = useState(true);
   const [product, setProduct] = useState({});
+
   const fetchProduct = async () => {
     try {
-      const product = await productsApi.show();
-      setProduct(product);
+      const response = await productsApi.show(slug);
+      setProduct(response);
     } catch (error) {
+      setIsError(true);
       console.log("An error occurred:", error);
     } finally {
       setIsLoading(false);
@@ -30,19 +37,14 @@ const Product = () => {
   const discountPercentage = ((totalDiscounts / mrp) * 100).toFixed(1);
 
   if (isLoading) {
-    return (
-      <div className="flex h-screen w-full items-center justify-center">
-        <Spinner />
-      </div>
-    );
+    return <PageLoader />;
   }
 
+  if (isError) return <PageNotFound />;
+
   return (
-    <div className="px-6 pb-6">
-      <div>
-        <Typography className="py-2 text-4xl font-semibold">{name}</Typography>
-        <hr className="neeto-ui-border-black border-2" />
-      </div>
+    <>
+      <Header title={name} />
       <div className="mt-16 flex gap-4">
         <div className="w-2/5">
           <div className="flex justify-center gap-16">
@@ -57,14 +59,14 @@ const Product = () => {
           <Typography>{description}</Typography>
           <Typography>MRP: {mrp}</Typography>
           <Typography className="font-semibold">
-            Offered price: {offerPrice}
+            Offer price: {offerPrice}
           </Typography>
           <Typography className="font-semibold text-green-600">
             {discountPercentage}% off
           </Typography>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default Product;
