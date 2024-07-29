@@ -6,6 +6,7 @@ module.exports = mergeDeepLeft(
     rules: {
       "react/react-in-jsx-scope": "off",
       "no-console": "off",
+      "import/order": "off",
     },
   },
   defaultConfig

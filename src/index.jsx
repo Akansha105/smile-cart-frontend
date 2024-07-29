@@ -1,4 +1,7 @@
 import React from "react";
+import "./common/i18n";
+//i18n should load before App initialization. Hence, disabling import/order rule.
+// eslint-disable-next-line import/order
 
 import initializeAxios from "apis/axios";
 import ReactDOM from "react-dom/client";
