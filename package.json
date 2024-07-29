@@ -38,6 +38,7 @@
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@bigbinary/babel-preset-neeto": "1.0.7",
     "@bigbinary/neeto-cist": "1.0.6",
     "@bigbinary/neeto-icons": "1.17.6",
     "@bigbinary/neetoui": "5.2.41",
@@ -183,7 +184,8 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "@bigbinary/neeto"
     ]
   }
 }
