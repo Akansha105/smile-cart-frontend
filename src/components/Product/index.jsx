@@ -8,10 +8,12 @@ import {
   AddToCart,
 } from "components/commons";
 import useSelectedQuantity from "components/hooks/useSelectedQuantity";
+import i18n from "i18next";
 import { Typography, Button } from "neetoui";
 import { isNotNil, append } from "ramda";
 import { useParams } from "react-router-dom";
 import routes from "routes";
+import withTitle from "utils/withTitle";
 
 import Carousel from "./Carousel";
 
@@ -96,4 +98,4 @@ const Product = () => {
     </>
   );
 };
-export default Product;
+export default withTitle(Product, i18n.t("product"));

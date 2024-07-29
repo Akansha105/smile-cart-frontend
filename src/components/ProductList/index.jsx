@@ -6,6 +6,7 @@ import useDebounce from "hooks/useDebounce";
 import { Search } from "neetoicons";
 import { Input, NoData } from "neetoui";
 import { isEmpty } from "ramda";
+import withTitle from "utils/withTitle";
 
 import ProductListItem from "./ProductListItem";
 
@@ -64,4 +65,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default withTitle(ProductList);
