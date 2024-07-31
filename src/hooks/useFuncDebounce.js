@@ -9,4 +9,5 @@ const useFuncDebounce = func => {
 
   return debounceFun;
 };
+
 export default useFuncDebounce;
