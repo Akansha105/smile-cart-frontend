@@ -31,5 +31,16 @@
   "state": "State",
   "selectState": "Select the state",
   "zipCode": "Zip code",
-  "enterZipCode": "Enter zip code"
+  "enterZipCode": "Enter zip code",
+  "validations": {
+    "emailRequired": "Email address is required",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "addressRequired": "Address is required",
+    "apartmentRequired": "Apartment is required",
+    "cityRequired": "City is required",
+    "stateRequired": "State is required",
+    "zipCodeRequired": "Zip code is required",
+    "emailInvalid": "Email address is invalid"
+  }
 }
