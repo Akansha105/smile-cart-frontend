@@ -42,3 +42,5 @@ export const CHECKOUT_FORM_INITIAL_VALUES = {
   state: null,
   zipCode: "",
 };
+
+export const CHECKOUT_LOCAL_STORAGE_KEY = "checkoutUserDetails";
