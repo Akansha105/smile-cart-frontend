@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 import { LeftArrow } from "neetoicons";
 import { Typography } from "neetoui";
 import { keys } from "ramda";
@@ -45,4 +47,4 @@ const Header = ({ title, actionBlock, shouldShowBackButton = true }) => {
     </div>
   );
 };
-export default Header;
+export default memo(Header);
