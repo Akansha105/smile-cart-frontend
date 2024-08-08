@@ -28,7 +28,7 @@ export const useFetchCartProducts = slugs => {
   const response = useQueries(
     slugs.map(slug => ({
       queryKey: [QUERY_KEYS.PRODUCTS, slug],
-      queryFun: () => productsApi.show(slug),
+      queryFn: () => productsApi.show(slug),
       onSuccess: ({ availableQuantity, name }) => {
         if (availableQuantity >= cartItems[slug]) return;
 
